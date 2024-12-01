@@ -1,0 +1,56 @@
+<?php
+function medito_starter_register_mega_menu_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Mega Menus', 'Post Type General Name', 'od-core' ),
+        'singular_name'         => _x( 'Mega Menu', 'Post Type Singular Name', 'od-core' ),
+        'menu_name'             => __( 'Mega Menus', 'od-core' ),
+        'name_admin_bar'        => __( 'Mega Menu', 'od-core' ),
+        'archives'              => __( 'Mega Menu Archives', 'od-core' ),
+        'attributes'            => __( 'Mega Menu Attributes', 'od-core' ),
+        'parent_item_colon'     => __( 'Parent Mega Menu:', 'od-core' ),
+        'all_items'             => __( 'All Mega Menus', 'od-core' ),
+        'add_new_item'          => __( 'Add New Mega Menu', 'od-core' ),
+        'add_new'               => __( 'Add New', 'od-core' ),
+        'new_item'              => __( 'New Mega Menu', 'od-core' ),
+        'edit_item'             => __( 'Edit Mega Menu', 'od-core' ),
+        'update_item'           => __( 'Update Mega Menu', 'od-core' ),
+        'view_item'             => __( 'View Mega Menu', 'od-core' ),
+        'view_items'            => __( 'View Mega Menus', 'od-core' ),
+        'search_items'          => __( 'Search Mega Menu', 'od-core' ),
+        'not_found'             => __( 'Not found', 'od-core' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'od-core' ),
+        'featured_image'        => __( 'Featured Image', 'od-core' ),
+        'set_featured_image'    => __( 'Set featured image', 'od-core' ),
+        'remove_featured_image' => __( 'Remove featured image', 'od-core' ),
+        'use_featured_image'    => __( 'Use as featured image', 'od-core' ),
+        'insert_into_item'      => __( 'Insert into Mega Menu', 'od-core' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this Mega Menu', 'od-core' ),
+        'items_list'            => __( 'Mega Menus list', 'od-core' ),
+        'items_list_navigation' => __( 'Mega Menus list navigation', 'od-core' ),
+        'filter_items_list'     => __( 'Filter Mega Menus list', 'od-core' ),
+    );
+    $args = array(
+        'label'                 => __( 'Mega Menu', 'od-core' ),
+        'description'           => __( 'Custom post type for Mega Menus', 'od-core' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'revisions' ),
+        'taxonomies'            => array(),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-menu',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+        'show_in_rest'          => true, // Enables Gutenberg support
+        'rewrite'               => array( 'slug' => 'mega-menu' ),
+    );
+    register_post_type( 'mega-menu', $args );
+}
+add_action( 'init', 'medito_starter_register_mega_menu_post_type', 0 );
