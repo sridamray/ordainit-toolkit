@@ -171,6 +171,7 @@ class OD_Core_Plugin
 	{
 		return [
 			'test',
+			'hero-banner',
 		];
 	}
 
